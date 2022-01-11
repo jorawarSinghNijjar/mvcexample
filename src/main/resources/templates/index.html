@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Order</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">yourTV</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/orders}">Orders</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-5">
+            <h2 class="heading-section">Order your TV's in bulk</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-12">
+            <div class="wrapper">
+              <div class="row no-gutters">
+                <div
+                  class="col-lg-6 col-md-7 order-md-last d-flex align-items-stretch"
+                >
+                  <div class="contact-wrap w-100 p-md-5 p-4">
+                    <h3 class="mb-4">Enter Order details</h3>
+                    <div id="form-message-warning" class="mb-4"></div>
+                    <div id="form-message-success" class="mb-4">
+                      Your message was sent, thank you!
+                    </div>
+                    <form
+                      method="POST"
+                      action="#"
+                      th:action="@{/orders}"
+                      th:object="${order}"
+                      id="contactForm"
+                      name="contactForm"
+                      class="contactForm"
+                    >
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="label" for="name">Model Name</label>
+							<select class="form-control form-select-lg" th:field="*{modelName}" aria-label="Default select example">
+
+								<option value="XR55X90J">XR55X90J</option>
+								<option value="XR60L54">XR60L54</option>
+								<option value="X87DJ2">X87DJ2</option>
+							</select>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+							<label class="label" for="name">Screen Size</label>
+							<select class="form-control form-select-lg" th:field="*{screenSize}" aria-label="Default select example">
+
+								<option value="50">50 inches</option>
+								<option value="55">55 inches</option>
+								<option value="65">65 inches</option>
+								<option value="75">75 inches</option>
+								<option value="85">85 inches</option>
+							  </select>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="label" for="subject">Quantity</label>
+                            <input
+                              type="number"
+                              class="form-control"
+                              name="subject"
+                              id="subject"
+                              placeholder="Subject"
+                              th:field="*{quantity}"
+                            />
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <input
+                              type="submit"
+                              value="Order"
+                              class="btn btn-primary btn-block"
+                            />
+                            <div class="submitting"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <div class="col-lg-6 col-md-5 d-flex align-items-stretch order-image-wrapper">
+					<img src="images/product-img.png" class="img-fluid" alt="Responsive image">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

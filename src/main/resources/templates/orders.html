@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Order</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,100,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">yourTV</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/orders}">Orders</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center" >
+          <div class="col-md-6 text-center mb-5">
+            <h2 class="heading-section">Your Orders</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center mb-5" th:each="order: ${orders}">
+          <div class="col-md-9">
+            <div class="wrapper">
+              <div class="row">
+                <div
+                  class="col-lg-7 col-md-7 order-md-last d-flex align-items-stretch"
+                >
+                  <div class="contact-wrap w-100 p-md-5 p-4">
+                    <h3 class="mb-4">Order details</h3>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="label" >Model Name : <span class="font-weight-light" th:text="${order.modelName}"</span></label>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="label">Screen Size : <span class="font-weight-light" th:text="${order.screenSize}"></span></label>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="label">Quantity : <span class="font-weight-light" th:text="${order.quantity}"></span></label>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="label">Date of Order : <span class="font-weight-light" th:text="${order.date}"></span></label>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <div
+                  class="col-lg-5 col-md-5 d-flex align-items-stretch order-image-wrapper"
+                >
+                  <img
+                    src="images/product-img.png"
+                    class="img-fluid"
+                    alt="Responsive image"
+                  />
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
